@@ -6,38 +6,39 @@ import java.util.Properties;
 
 public class Test {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		System.out.println("YOO WAZZZZUPPPPP!!!!");
 //can you see this ?// this will give error
 		//Saw it, changed it!
 		//Fixed Error!
+		getConnection();
 
 	}
-	private String userName = "test";
-	private String password = "untest";
-	private String dbms = "mysql";
-	private String serverName = "holmdelf_njcu";
-	private String portNumber = "3306";
-	private String dbName = "holmdelf_njcu";
+	private static String userName = "test";
+	private static String password = "untest";
+	private static String dbms = "mysql";
+	private static String serverName = "holmdelf_njcu";
+	private static String portNumber = "3306";
+	private static String dbName = "holmdelf_njcu";
 	
 	
-	public Connection getConnection() throws SQLException {
+	public static Connection getConnection() throws SQLException {
 
 	    Connection conn = null;
 	    Properties connectionProps = new Properties();
-	    connectionProps.put("user", this.userName);
-	    connectionProps.put("password", this.password);
+	    connectionProps.put("user", userName);
+	    connectionProps.put("password", password);
 
-	    if (this.dbms.equals("mysql")) {
+	    if (dbms.equals("mysql")) {
 	        conn = DriverManager.getConnection(
-	                   "jdbc:" + this.dbms + "://" +
-	                   this.serverName +
-	                   ":" + this.portNumber + "/",
+	                   "jdbc:" + dbms + "://" +
+	                   serverName +
+	                   ":" + portNumber + "/",
 	                   connectionProps);
-	    } else if (this.dbms.equals("derby")) {
+	    } else if (dbms.equals("derby")) {
 	        conn = DriverManager.getConnection(
-	                   "jdbc:" + this.dbms + ":" +
-	                   this.dbName +
+	                   "jdbc:" + dbms + ":" +
+	                   dbName +
 	                   ";create=true",
 	                   connectionProps);
 	    }
