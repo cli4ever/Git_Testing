@@ -13,7 +13,13 @@ public class Test {
 		//Fixed Error!
 
 	}
-	private String username = "tester";
+	private String userName = "test";
+	private String password = "untest";
+	private String dbms = "mysql";
+	private String serverName = "holmdelf_njcu";
+	private String portNumber = "3306";
+	private String dbName = "holmdelf_njcu";
+	
 	
 	public Connection getConnection() throws SQLException {
 
